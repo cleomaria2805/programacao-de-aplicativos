@@ -3,9 +3,6 @@ valor_todal_da_compra = float(input("digiteo valor da compra: "))
 frete = int(input("digite a distancia da entrega: "))
 cupom_especial = input("Voce possui cupom especial?(S/N): ")
 
-
-
-
 if valor_todal_da_compra >= 1.000 and cupom_especial == "S":
     desconto = valor_todal_da_compra * 0.20
     valor = valor_todal_da_compra - desconto

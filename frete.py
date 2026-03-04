@@ -1,11 +1,30 @@
-valor_da_compra = float(input("digite o valor da sua compra: "))
-prime = input("digite se você é prime (s/n): ")
+cliente = input("nome do Cliente: ")
+valor_original = float(input("valor da Compra: R$ "))
+distancia = int(input("distância (km): "))
+tem_cupom = input("possui cupom? (S/N): ")
 
-frete = 50.00
+desconto = 0.0
 
-if valor_da_compra > 500.00 or (prime == "s" and valor_da_compra > 100.00):
-    print("o seu frete é gratis")
+if valor_original >= 1000.0 and tem_cupom == "S":
+    desconto = valor_original * 0.20
+elif valor_original > 500.0 and tem_cupom == "S":
+    desconto = valor_original * 0.10
+
+valor_com_desconto = valor_original - desconto
+
+frete = 40.0
+if distancia <= 50 and valor_com_desconto > 200.0:
     frete = 0.0
 
-frete_nao_gratis = valor_da_compra + frete
- 
+total_final = valor_com_desconto + frete
+
+print("-" * 30)
+print("RELATÓRIO DE COMPRA - ", cliente)
+print("Valor Original: R$ ", valor_original)
+print("Desconto: R$ ", desconto)
+print("Frete: R$ ", frete)
+print("TOTAL A PAGAR: R$ ", total_final)
+
+if desconto == (valor_original * 0.20):
+    print("SURPRESA: Você ganhou um Mousepad Gamer de brinde!")
+print("-" * 30)
