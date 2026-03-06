@@ -1,4 +1,4 @@
-saldo_inicial = 1.000
+saldo_inicial = 1000.00
 print("1 - deposito, 2 - saque, 3 - extrato.")
 menu = int(input("escolha uma opção: "))
 
@@ -10,7 +10,7 @@ if menu == 1:
     else:
         print("valor inválido para depósito.")
         
-    print("saldo atual: :", valor)
+    print("saldo atual: :", saldo_inicial)
 
 elif menu == 2:
     valor = float(input("digite o valor para saque: "))
@@ -23,7 +23,7 @@ elif menu == 2:
         
     print("saldo atual: ", saldo_inicial)
 elif menu == 3:
-    print("saldo atual: = ", saldo_inicial)
+    print("saldo atual:  ", saldo_inicial)
 
 else:
     print("opção inválida.")
