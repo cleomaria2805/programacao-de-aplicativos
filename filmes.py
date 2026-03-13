@@ -1,5 +1,3 @@
 filmes = ["herry potter","enrolados","frozen","rei leão","ponyo"]
-print ("imprimindo os filmes")
-
-filmes [0]
-filmes [2]
+print(f"imprima o primeiro filme {filmes[0]}")
+print(f"imprima o ultimo filme {filmes[4]}")
