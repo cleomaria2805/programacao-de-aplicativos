@@ -6,3 +6,4 @@ carteira = (input("voce possui carteira de motorista? (s/n): "))
 if nome == "João" or "thiago" or "pedro" or "matheus":
     print("salvamento canselado")
 else: 
+    print("salvamento concluido")

@@ -1,7 +1,6 @@
 vagas = ["livre", "ocupado", "livre", "ocupado"]
 escolha = int(input("digite um numero de 0 a 3: "))
-if escolha % 2 == 0 and vagas == "livre":
-    print(f"vagas{escolha}")
-
+if escolha % 2 == 0 and vagas[escolha] == "livre":
+     print(f"vagas{escolha} autorizada para estacionar")
 else:
-    print("ocupado")
+    print(f"vagas {escolha} indisponível ou fora das regras")
