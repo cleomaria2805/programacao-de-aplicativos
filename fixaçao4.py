@@ -1,4 +1,4 @@
-nomes = ["Ana", "Bernardo", "Cris", "Dandara"]
-for n in nomes:
-    if len(n) > 5:
-        print(n)
+fila = ["A", "B", "C", "D", "E"]
+while len(fila) > 0:
+    atendido = fila.pop(0)
+    print(f"Atendido: {atendido}")

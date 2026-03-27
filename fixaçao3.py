@@ -1,4 +1,5 @@
-nomes = ["Ana", "Bernardo", "Cris", "Dandara"]
-for n in nomes:
-    if len(n) > 5:
-        print(n)
+nomes = ["Ana", "Carlos", "Bia", "Beatriz", "Enzo", "Leonardo", "Julia"]
+
+for nome in nomes:
+    if len(nome) > 5:
+        print(nome)
