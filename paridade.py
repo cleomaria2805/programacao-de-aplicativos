@@ -1,13 +1,12 @@
-def e_par(numero):
-    """Retorna True se o número for par e False se for ímpar."""
+def eh_par(numero):
     if numero % 2 == 0:
         return True
     else:
         return False
 
-num = int(input("Digite um número inteiro: "))
+usuario = int(input("digite um numero inteiro: "))
 
-if e_par(num):
-    print("Este número é par")
+if eh_par(usuario):
+    print("esse numero é par! ")
 else:
-    print("Este número é ímpar")
+    print("esse numero é impar")
