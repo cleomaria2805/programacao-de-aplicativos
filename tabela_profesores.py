@@ -2,7 +2,7 @@ import sqlite3
 
 def cadastrar_professor():
 
-    conexao = sqlite3.connect('escola_demonstracao.db')
+    conexao = sqlite3.connect('ecola_demonstracao.db')
     cursor = conexao.cursor()
     
     cursor.execute('''
@@ -26,10 +26,73 @@ cpf = int(input("seu CPF: "))
 salario = int(input("seu salario: "))
 escola = input("sua escola: ")
 
-comando_insert = f"""
-INSERT INTO PROFESSOR (nome, telefone, materia, idade, cpf, salario, escola)
-VALUES('{nome}','{telefone}','{materia}','{idade}','{cpf}','{salario}','{escola}');
+comando_insert = """
+INSERT INTO PROFESSORES (nome, telefone, materia, idade, cpf, salario, escola)
+VALUES(?, ?, ?, ?, ?, ?, ?);
 """
 
-cursor.execute(comando_insert)
-conexao.commit()
+def listar_professores():
+    conexao = sqlite3.connect('ecola_demonstracao.db')
+    cursor = conexao.cursor()
+
+    cursor.execute("SELECT * FROM professores")
+    professores = cursor. fetchall()
+
+    if not professores:
+        print("nenhum professor encontrado!")
+        conexao.close()
+        return
+    
+
+    for prof in professores:
+        print(f"ID: {prof[0]}")
+        print(f"Nome: {prof[1]} | Tel: {prof[2]} | Matéria: {prof[3]}")
+        print(f"Idade: {prof[4]} anos | CPF: {prof[5]}")
+        print(f"Salário: R$ {prof[6]:.2f} | Escola: {prof[7]}")
+        print("-" * 50)
+
+    conexao.close()
+
+def atualizar_professores():
+    conexao = sqlite3.connect('ecola_demonstracao.db')
+    cursor = conexao.cursor()
+
+    id_busca = int(input("digite o id: "))
+
+    cursor.execute(f''' SELECT * FROM professores WHERE id = {id_busca}''')
+    professor = cursor.fetchone()
+    if not professor:
+        print("professor nao encontrado")
+    
+        conexao.close()
+        return
+
+    else:
+        novo_nome = input("digite o novo nome: ")
+        nova_idade = int(input("digite a nova idade: "))
+        novo_telefone = int(input("digite o novo telefone: "))
+        nova_materia = input("digite a nova matéria: ")
+        novo_cpf = input("digite o novo CPF: ")
+        novo_salario = float(input("digite o novo salário: "))
+        nova_escola = input("digite a nova escola: ")
+
+    comando =f"UPDATE professores set nome = '{novo_nome}', idade = '{nova_idade}', telefone = '{novo_telefone}', materia = '{nova_materia}' cpf = '{novo_cpf}', salario = '{novo_salario}', escola = '{nova_escola}'"
+    id = {id_busca}
+
+    cursor.execute(comando)
+    conexao.commit()
+    conexao.close
+
+def excluir_professores():
+    conexao = sqlite3.connect('ecola_demonstracao.db')
+    cursor = conexao.cursor()
+
+    id_busca = int(input("Digite o ID do professor que deseja excluir: "))
+    cursor.execute(f'''DELETE FROM professores WHERE id = {id_busca}''')
+
+    conexao.commit()
+    conexao.close()
+
+    print("professor excluído com sucesso!")
+
+atualizar_professores()
