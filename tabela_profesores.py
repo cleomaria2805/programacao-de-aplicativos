@@ -95,4 +95,18 @@ def excluir_professores():
 
     print("professor excluído com sucesso!")
 
-atualizar_professores()
+while opcao: 
+    
+    print("1 - cadastrar Professor")
+    print("2 - listar Professores")
+    print("3 - atualizar Professor")
+    print("4 - excluir Professor")
+    print("5 - sair")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == '1': cadastrar_professor()
+    elif opcao == '2': listar_professores()
+    elif opcao == '3': atualizar_professores()
+    elif opcao == '4': excluir_professores()
+    elif opcao == '5': print("Saindo do sistema...") 
+    else: print("Opção inválida!")
