@@ -11,5 +11,5 @@ def iniciar_banco():
         nome TEXT NOT NULL
         )
     ''')
-    conexao.commit  
+    conexao.commit  # CORREÇÂO: Faltou chamar conexao.commit()
     conexao.close()

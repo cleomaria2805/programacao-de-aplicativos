@@ -1,11 +1,11 @@
 import sqlite3 
  
 def vincular_aluno_turma(): 
-    nome = input("Nome do aluno: ") 
-    conexao = None 
+    nome = input("nome do aluno: ") 
+    conexao = None # CORREÇÂO: inicializa a variável para evitar erro no finally
 
     try: 
-        id_turma = int(input("Digite o ID numérico da turma: ")) 
+        id_turma = int(input("digite o ID numérico da turma: ")) 
          
         conexao = sqlite3.connect('sistema_escola.db') 
         cursor = conexao.cursor() 
@@ -13,12 +13,18 @@ def vincular_aluno_turma():
         conexao.commit() 
 
     except ValueError:
-        print("Erro: Você deve digitar um número inteiro válido para o ID da turma!")
+
+        # CORREÇÂO: captura o erro caso o usuário não digite um número inteiro
+        print("ERRO: Você deve digitar um número inteiro válido para o ID da turma!")
 
     except sqlite3.Error as erro:
-        print(f"Erro no banco de dados!: {erro}") 
+
+         # captura erros exclusivos do banco de dados
+        print(f"erro no banco de dados!: {erro}") 
 
     finally: 
+
+         # CORREÇÂO: só fecha a conexão se ela tiver sido aberta com sucesso
         if conexao:
             conexao.close() 
  
